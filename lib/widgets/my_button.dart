@@ -4,6 +4,8 @@ import 'package:music_maker_space/common.dart';
 class MyButton extends StatelessWidget {
   final String text;
   final Color textColor;
+  final double textHorizontalPading;
+  final double textVerticalPading;
   final Function() onTab;
   final Color? borderColor;
   final Color? fillColor;
@@ -16,6 +18,8 @@ class MyButton extends StatelessWidget {
     this.borderColor,
     this.icon,
     required this.onTab,
+    required this.textHorizontalPading,
+    required this.textVerticalPading,
   });
 
   @override
@@ -31,7 +35,8 @@ class MyButton extends StatelessWidget {
           ),
         ),
         backgroundColor: fillColor ?? Colors.transparent,
-        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+        padding: EdgeInsets.symmetric(
+            horizontal: textHorizontalPading, vertical: textVerticalPading),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -44,9 +49,12 @@ class MyButton extends StatelessWidget {
                 fontWeight: FontWeight.w500,
                 fontFamily: font),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 12.0),
-            child: icon ?? Container(),
+          Visibility(
+            visible: icon != null,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 12.0),
+              child: icon ?? Container(),
+            ),
           )
         ],
       ),
