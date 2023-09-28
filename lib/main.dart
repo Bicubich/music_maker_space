@@ -53,12 +53,12 @@ class _EventsPageState extends State<EventsPage> {
       padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 12),
       child: Column(
         children: [
-          const Stack(
+          Stack(
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
@@ -124,6 +124,21 @@ class _EventsPageState extends State<EventsPage> {
                       )
                     ],
                   ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 24.0),
+                    child: SizedBox(
+                      height: 50,
+                      child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: buttonList.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(12, 5, 12, 5),
+                                child: buttonList[index]);
+                          }),
+                    ),
+                  ),
                 ],
               ),
             ],
@@ -132,20 +147,6 @@ class _EventsPageState extends State<EventsPage> {
               child: ListView(
             scrollDirection: Axis.vertical,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 24),
-                child: SizedBox(
-                  height: 50,
-                  child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: buttonList.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return Padding(
-                            padding: const EdgeInsets.fromLTRB(12, 5, 12, 5),
-                            child: buttonList[index]);
-                      }),
-                ),
-              ),
               const SizedBox(
                 width: double.infinity,
                 child: Padding(
@@ -158,8 +159,11 @@ class _EventsPageState extends State<EventsPage> {
                           fontFamily: font)),
                 ),
               ),
-              const NewsUpdateListView(
-                newUpdateCardCount: 3,
+              const Padding(
+                padding: EdgeInsets.only(top: 24.0),
+                child: NewsUpdateListView(
+                  newUpdateCardCount: 3,
+                ),
               ),
               const SizedBox(
                 width: double.infinity,
@@ -173,9 +177,12 @@ class _EventsPageState extends State<EventsPage> {
                           fontFamily: font)),
                 ),
               ),
-              const NewsUpdateListView(
-                newUpdateCardCount: 3,
-                isVerticalList: false,
+              const Padding(
+                padding: EdgeInsets.only(top: 24.0),
+                child: NewsUpdateListView(
+                  newUpdateCardCount: 3,
+                  isVerticalList: false,
+                ),
               ),
               Container(),
             ],
