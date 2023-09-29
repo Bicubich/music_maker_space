@@ -93,7 +93,7 @@ class MyEvents extends StatelessWidget {
   const MyEvents({super.key});
   @override
   Widget build(BuildContext context) {
-    return EventsPage();
+    return const EventsPage();
   }
 }
 
