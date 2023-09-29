@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:music_maker_space/common.dart';
+import 'package:music_maker_space/home.dart';
 import 'package:music_maker_space/widgets/my_button.dart';
 import 'package:music_maker_space/widgets/my_text_field.dart';
 
@@ -79,7 +80,12 @@ class AutorizationPage extends StatelessWidget {
                       borderColor: Colors.green,
                       icon: const Icon(Icons.arrow_right_alt_outlined,
                           color: Colors.black),
-                      onTab: () {},
+                      onTab: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const HomePage()));
+                      },
                       textHorizontalPading: 50.0,
                       textVerticalPading: 20.0,
                     ),
